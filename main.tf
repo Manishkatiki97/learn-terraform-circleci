@@ -5,18 +5,19 @@ terraform {
       version = "3.22.0"
     }
   }
-  backend "s3" {
-    bucket = "8c76ccf9-d2e8-da63-cdbd-248cd3f3fc7f-backend"
-    key    = "terraform/webapp/terraform.tfstate"
-    region = "us-east-1" 
-    profile = "default"
-  }
+
   required_version = "~> 0.14"
 }
 
 provider "aws" {
   region = var.region
   profile = "default"
+    backend "s3" {
+    bucket = "8c76ccf9-d2e8-da63-cdbd-248cd3f3fc7f-backend"
+    key    = "terraform/webapp/terraform.tfstate"
+    region = "us-east-1" 
+    profile = "default"
+  }
 }
 
 resource "random_uuid" "randomid" {}
