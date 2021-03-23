@@ -4,14 +4,14 @@ terraform {
       source  = "hashicorp/aws"
       version = "3.22.0"
     }
-        backend "s3" {
+  }
+
+  backend "s3" {
     bucket = "8c76ccf9-d2e8-da63-cdbd-248cd3f3fc7f-backend"
     key    = "terraform/webapp/terraform.tfstate"
     region = "us-east-1" 
     profile = "manish"
   }
-  }
-
   required_version = "~> 0.14"
 }
 
